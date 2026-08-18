@@ -31,9 +31,11 @@
 **Usuarios del sistema:**
 
 | Tipo de usuario | Qué necesita del sistema | Qué le preocupa |
-|Dueño |Ver existencias actualizadas y confiables para decidir cuándo y qué comprar |Tomar decisiones de compra con información desactualizada o incompleta |
-|Encargado del inventario |Registrar entradas y salidas de material de forma rápida y centralizada |Que el registro sea ágil y no le quite tiempo a su trabajo diario |
-|Vendedor / Encargado de instalación/proyecto |Consultar disponibilidad real antes de vender o comprometer una fecha de entrega / 	Confirmar que el material reservado para su proyecto esté disponible cuando lo necesite |Ofrecer algo que en realidad no hay en existencia, por estar viendo un Excel desactualizado / Que el material se agote o se lo asignen a otro proyecto sin avisarle|
+|---|---|---|
+| Dueña de la empresa | Ver existencias actualizadas y confiables para decidir cuándo y qué comprar | Tomar decisiones de compra con información desactualizada o incompleta |
+| Encargado de almacén / inventario | Registrar entradas y salidas de material de forma rápida y centralizada | Que el registro sea ágil y no le quite tiempo a su trabajo diario |
+| Vendedor / atención a cliente | Consultar disponibilidad real antes de vender o comprometer una fecha de entrega | Ofrecer algo que en realidad no hay en existencia, por estar viendo un Excel desactualizado |
+| Encargado de instalación/proyecto | Confirmar que el material reservado para su proyecto esté disponible cuando lo necesite | Que el material se agote o se lo asignen a otro proyecto sin avisarle |
 
 
 **Un conflicto entre usuarios: Vendedor vs. Encargado de almacén — reservar material
