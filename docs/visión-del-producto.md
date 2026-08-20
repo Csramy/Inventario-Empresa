@@ -16,7 +16,7 @@
 ## 1. Descripción del sistema
 
 
-**Nombre del sistema:**
+**Nombre del sistema: RockStock**
 
 **Descripción:** Sistema que permite a una empresa de superficies de piedra natural y tecnológica controlar su inventario de materiales: registrar qué entra al almacén (compras de láminas, bloques u otros insumos), qué sale (por transformación, instalación o venta), y llevar el control de existencias en tiempo real. El sistema avisa cuando un material está por agotarse para que se pueda reabastecer a tiempo.
 
@@ -40,6 +40,8 @@
 
 **Un conflicto entre usuarios: Vendedor vs. Encargado de almacén — reservar material
 El vendedor quiere poder cerrar una venta rápido y "apartar" material para no perder al cliente, incluso si no está 100% seguro de la cantidad exacta que se va a usar. El de almacén, en cambio, necesita que las existencias reflejen la realidad para no quedarse sin material para otro proyecto que ya estaba confirmado. Si el sistema deja reservar con demasiada facilidad, se puede "apartar" material que en la práctica nunca se usa, y eso ensucia el inventario.**
+
+**Huecos encontrados por mi dupla: No entendió cómo se entera alguien hoy si hay material disponible o no.**
 
 ---
 
