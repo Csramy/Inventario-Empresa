@@ -68,9 +68,9 @@ Desde una perspectiva técnica, el timbrado fiscal exige la integración con API
 
 ## 4. Tipo de sistema y restricciones
 
-**Tipo de sistema: De información**
+**Tipo de sistema: De información (Software a la Medida)**
 
-**Por qué es de ese tipo: Porque su propósito fundamental es registrar, consultar y gestionar la información de una organización, lo cual representa el tipo de software más común en la industria y abarca de manera clásica la gestión de inventarios. En este caso, el sistema actúa como la única fuente de verdad en tiempo real para controlar las entradas, salidas y existencias físicas de láminas, bloques e insumos de piedra natural.**
+**Por qué es de ese tipo: Porque su propósito fundamental es registrar, consultar y gestionar la información de una organización, lo cual representa el tipo de software más común en la industria y abarca de manera clásica la gestión de inventarios. En este caso, el sistema actúa como la única fuente de verdad en tiempo real para controlar las entradas, salidas y existencias físicas de láminas, bloques e insumos de piedra natural. Es a la Medidad porque fue realizado para un cliente en específico y para sus necesidades.**
 
 **Atributos de calidad que impone:**
 
