@@ -68,8 +68,6 @@ Desde una perspectiva técnica, el timbrado fiscal exige la integración con API
 
 ## 4. Tipo de sistema y restricciones
 
-*Instrucción: identifica de qué tipo es tu sistema y qué te obliga a garantizar ese tipo. Un sistema de información y un sistema crítico no se diseñan igual.*
-
 **Tipo de sistema: De información**
 
 **Por qué es de ese tipo: Porque su propósito fundamental es registrar, consultar y gestionar la información de una organización, lo cual representa el tipo de software más común en la industria y abarca de manera clásica la gestión de inventarios. En este caso, el sistema actúa como la única fuente de verdad en tiempo real para controlar las entradas, salidas y existencias físicas de láminas, bloques e insumos de piedra natural.**
@@ -107,18 +105,3 @@ Desde una perspectiva técnica, el timbrado fiscal exige la integración con API
 *Por qué la descarté: Se rechaza debido a la sobrecarga documental que impone. El rigor de verificación cruzada para cada fase excede los límites temporales del proyecto académico, restando agilidad al desarrollo de las funciones nucleares.*
 
 ---
-
-## Antes de entregar
-
-Reviso que el documento cumpla lo siguiente:
-
-- [ ] La descripción del apartado 1 se entiende sin ser del área
-- [ ] Hay al menos dos tipos de usuario con necesidades distintas
-- [ ] Identifiqué un conflicto real entre usuarios
-- [ ] El alcance dice qué queda fuera, no solo qué queda dentro
-- [ ] Las exclusiones son específicas, no genéricas
-- [ ] Identifiqué el tipo de sistema y al menos dos atributos de calidad
-- [ ] Anoté al menos tres reglas de negocio no obvias
-- [ ] Justifiqué el ciclo de vida contra dos alternativas descartadas
-- [ ] El documento está en mi repositorio y se puede leer desde el navegador
-- [ ] Borré todas las instrucciones en cursiva de la plantilla
