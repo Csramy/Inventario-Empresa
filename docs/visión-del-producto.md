@@ -38,7 +38,7 @@
 | Encargado de instalación/proyecto | Confirmar que el material reservado para su proyecto esté disponible cuando lo necesite | Que el material se agote o se lo asignen a otro proyecto sin avisarle |
 
 
-**Un conflicto entre usuarios: Vendedor vs. Encargado de almacén — reservar material
+**Un conflicto entre usuarios: Vendedor vs. Encargado de almacén por reservar material. 
 El vendedor quiere poder cerrar una venta rápido y "apartar" material para no perder al cliente, incluso si no está 100% seguro de la cantidad exacta que se va a usar. El de almacén, en cambio, necesita que las existencias reflejen la realidad para no quedarse sin material para otro proyecto que ya estaba confirmado. Si el sistema deja reservar con demasiada facilidad, se puede "apartar" material que en la práctica nunca se usa, y eso ensucia el inventario.**
 
 **Huecos encontrados por mi dupla: No entendió cómo se entera alguien hoy si hay material disponible o no.**
