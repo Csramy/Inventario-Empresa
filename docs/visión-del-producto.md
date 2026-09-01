@@ -47,74 +47,64 @@ El vendedor quiere poder cerrar una venta rápido y "apartar" material para no p
 
 ## 3. Alcance
 
-*Instrucción: lo que escribes en "fuera del alcance" es lo que después evita que el proyecto crezca sin control. Sé específico: "reportes" no dice nada, "reportes de ventas mensuales exportables a PDF" sí.*
-
 ### Dentro del alcance
 
--
--
--
--
+- Registrar ingreso de materiales: Documentación técnica de láminas, bloques e insumos. Este módulo asegura que cada unidad sea trazable desde su entrada al almacén, eliminando el ingreso "invisible" de material.
+- Descontar stock por mermas o transformación: Gestión de salidas reales por venta, rotura o descarte natural. Su impacto operativo es directo: mantiene la paridad absoluta entre el almacén físico y el sistema.
+- Alertar stock mínimo a la gerencia: Automatización de notificaciones cuando los niveles de existencia alcanzan el umbral crítico. Esto permite un reabastecimiento inteligente y planificado.
+- Bloquear temporalmente por reserva de vendedor: Un motor de reglas de negocio que gestiona los compromisos comerciales, evitando la sobreventa de una misma pieza de piedra.
+- Consultar catálogo en tiempo real: Esta interfaz es la solución directa al "agujero" de comunicación identificado en la fase de diagnóstico. Sustituye por completo la necesidad de realizar llamadas a la dueña o esperar respuestas de correos electrónicos, permitiendo que cualquier usuario verifique la disponibilidad de forma autónoma e inmediata.
 
 ### Explícitamente fuera del alcance
 
--
--
--
+- No facturación ni pasarela de pagos: El sistema es una herramienta de control de activos y gestión logística interna, no un software contable ni transaccional.
+- No logística ni rutas de entrega: El alcance funcional concluye con el registro de salida del almacén; la gestión del transporte es un proceso externo.
+- No optimizador gráfico de cortes (Nesting): No se realizará el acomodo algorítmico de piezas dentro de las láminas.
 
-**Por qué queda fuera:**
+**Por qué queda fuera: No facturación ni pasarela de pagos**
 
-*Instrucción: para al menos una de las exclusiones, explica la razón. Puede ser tiempo, complejidad, o que no aporta al problema central.*
-
----
+---El procesamiento de transacciones financieras y la emisión de facturas electrónicas (timbrado fiscal) introducen un nivel de acoplamiento externo y complejidad de infraestructura que excede los objetivos académicos del proyecto.
+Desde una perspectiva técnica, el timbrado fiscal exige la integración con APIs SOAP/REST de Proveedores Autorizados de Certificación, lo que obliga a implementar la generación y validación criptográfica de estructuras XML complejas y el manejo seguro de Certificados de Sello Digital. Por otro lado, la integración de pasarelas de pago (como Stripe o PayPal) demanda el cumplimiento riguroso de normativas de seguridad PCI-DSS, la gestión de tokens de pago para evitar el almacenamiento de datos sensibles en nuestra base de datos, y la configuración de webhooks para el manejo asíncrono de eventos (notificaciones de pagos aprobados, rechazados o contracargos).
 
 ## 4. Tipo de sistema y restricciones
 
 *Instrucción: identifica de qué tipo es tu sistema y qué te obliga a garantizar ese tipo. Un sistema de información y un sistema crítico no se diseñan igual.*
 
-**Tipo de sistema:**
+**Tipo de sistema: De información**
 
-*(De información · Embebido · Crítico · Web y SaaS · De datos y análisis)*
-
-**Por qué es de ese tipo:**
+**Por qué es de ese tipo: Porque su propósito fundamental es registrar, consultar y gestionar la información de una organización, lo cual representa el tipo de software más común en la industria y abarca de manera clásica la gestión de inventarios. En este caso, el sistema actúa como la única fuente de verdad en tiempo real para controlar las entradas, salidas y existencias físicas de láminas, bloques e insumos de piedra natural.**
 
 **Atributos de calidad que impone:**
 
 | Atributo | Por qué importa en mi caso | Qué pasa si no se cumple |
 |---|---|---|
-| | | |
-| | | |
-| | | |
+|Usabilidad |El sistema debe ser fácil de usar para el personal |Nadie usará el sistema porque no se entenderá como usarlo |
+|Integridad de Datos |El inventario debe estar completamente sincronizado entre el almacén y el sistema |Compras de emergencia, desajustes financieros por datos erróneos, materiales apartados que se vendan, etc |
+|Control de Acceso |Jerarquía de permisos para operaciones de reserva y baja |Manipulación no autorizada del inventario y reservas fraudulentas |
 
 **Reglas de negocio que ya identifiqué:**
 
-*Instrucción: reglas que no son obvias desde fuera y que alguien que conoce el dominio tendría que explicarte. Si no encuentras ninguna, tu caso puede ser demasiado simple.*
-
-1.
-2.
-3.
+1. Indivisibilidad y Conservación de Superficie: Una lámina es una entidad atómica. El sistema deberá asegurar que, tras cualquier proceso de corte, el ID original sea retirado del stock activo y se generen nuevos identificadores para las sub-unidades y mermas. La suma de las superficies de los nuevos registros deberá ser igual a la superficie del registro original.
+2. Caducidad Mandatoria de Reservas: Toda reserva temporal sin confirmación de orden de venta deberá ser liberada automáticamente por el sistema tras 48 horas hábiles, reintegrando el material al stock disponible.
+3. Consistencia Cromática por ID de Bloque: El sistema deberá obligar a la vinculación de cada lámina con un ID de Bloque de origen. Esta restricción es técnica y geológica, garantizando que el veteado y la tonalidad sean consistentes en pedidos complementarios.
 
 ---
 
 ## 5. Ciclo de vida elegido
 
-*Instrucción: este apartado se trabaja en la semana 3, después de ver los modelos de desarrollo. La justificación pesa más que la elección: no hay un modelo correcto, hay uno defendible para tu caso.*
+**Modelo elegido: Prototipado Rápido**
 
-**Modelo elegido:**
-
-**Por qué le conviene a este proyecto:**
-
-*Instrucción: argumenta con las características reales de tu caso. Estabilidad de los requisitos, disponibilidad del cliente, nivel de riesgo, tamaño del equipo, frecuencia de entregas esperada.*
+**Por qué le conviene a este proyecto: Permite la validación temprana del flujo de reservas entre el vendedor y el almacén antes de consolidar la arquitectura de base de datos. Dado que la usabilidad es un atributo dominante, la creación de prototipos funcionales mitigará el riesgo de rechazo por parte de los usuarios operativos y permitirá ajustar las reglas de "stock fantasma" en etapas iniciales.**
 
 ### Alternativas descartadas
 
-**Alternativa 1:**
+**Alternativa 1: Modelo en Cascada**
 
-*Por qué la descarté:*
+*Por qué la descarté: Se descarta por su rigidez. La imposibilidad de retroalimentación dinámica en un entorno donde los requisitos de interfaz son críticos derivaría en un alto costo de corrección al finalizar el ciclo.*
 
-**Alternativa 2:**
+**Alternativa 2: Modelo en V**
 
-*Por qué la descarté:*
+*Por qué la descarté: Se rechaza debido a la sobrecarga documental que impone. El rigor de verificación cruzada para cada fase excede los límites temporales del proyecto académico, restando agilidad al desarrollo de las funciones nucleares.*
 
 ---
 
