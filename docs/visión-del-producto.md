@@ -8,7 +8,7 @@
 ---
 
 **Autor: César Méndez**
-**Fecha de la última versión: 18/08/2026**
+**Fecha de la última versión: 01/09/2026**
 **Repositorio: Inventario-Empresa**
 
 ---
