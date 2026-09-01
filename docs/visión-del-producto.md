@@ -98,10 +98,10 @@ y el tiempo que se tiene para desarrollar este proyecto.
 
 **Alternativa 1: Modelo en Cascada**
 
-*Por qué la descarté: Se descarta por su rigidez. La imposibilidad de retroalimentación dinámica en un entorno donde los requisitos de interfaz son críticos derivaría en un alto costo de corrección al finalizar el ciclo.*
+*Por qué la descarté: Por su rigidez. La imposibilidad de retroalimentación dinámica en un entorno donde los requisitos de interfaz son críticos derivaría en un alto costo de corrección al finalizar el ciclo.*
 
 **Alternativa 2: Modelo en V**
 
-*Por qué la descarté: Se rechaza debido a la sobrecarga documental que impone. El rigor de verificación cruzada para cada fase excede los límites temporales del proyecto académico, restando agilidad al desarrollo de las funciones nucleares.*
+*Por qué la descarté: Se debe a la sobrecarga documental que impone. El trabajo de verificación cruzada para cada fase excede los límites temporales del proyecto, restando agilidad al desarrollo de las funciones principales.*
 
 ---
