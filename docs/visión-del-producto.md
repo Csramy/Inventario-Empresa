@@ -63,8 +63,8 @@ El vendedor quiere poder cerrar una venta rápido y "apartar" material para no p
 
 **Por qué queda fuera: No facturación ni pasarela de pagos**
 
----El procesamiento de transacciones financieras y la emisión de facturas electrónicas (timbrado fiscal) introducen un nivel de acoplamiento externo y complejidad de infraestructura que excede los objetivos académicos del proyecto.
-Desde una perspectiva técnica, el timbrado fiscal exige la integración con APIs SOAP/REST de Proveedores Autorizados de Certificación, lo que obliga a implementar la generación y validación criptográfica de estructuras XML complejas y el manejo seguro de Certificados de Sello Digital. Por otro lado, la integración de pasarelas de pago (como Stripe o PayPal) demanda el cumplimiento riguroso de normativas de seguridad PCI-DSS, la gestión de tokens de pago para evitar el almacenamiento de datos sensibles en nuestra base de datos, y la configuración de webhooks para el manejo asíncrono de eventos (notificaciones de pagos aprobados, rechazados o contracargos).
+---El procesamiento de transacciones financieras y la emisión de facturas electrónicas (timbrado fiscal) introducen un nivel de acoplamiento externo y complejidad de infraestructura que excede los objetivos 
+y el tiempo que se tiene para desarrollar este proyecto.
 
 ## 4. Tipo de sistema y restricciones
 
