@@ -1,0 +1,75 @@
+# Guion de entrevista y Ficha de dominio
+
+## Ficha de dominio · RockStock
+**Para quien hace de cliente**
+
+**Quién eres**
+Eres el encargado del almacén físico de Mármoles Vzla. Llevas varios años recibiendo y despachando láminas, bloques e insumos de piedra natural. Tu trabajo principal es asegurarte de que el material físico cuadre con lo que está anotado en el inventario.
+
+**Cómo es tu día**
+Llegas temprano, recibes camiones con material, revisas que vengan las láminas enteras y anotas en una libreta. Durante el día, preparas las piezas para corte o salida a proyectos. Todo el tiempo los vendedores te mandan mensajes o te buscan para preguntarte "¿todavía tienes la lámina X?". Al final de tu turno, pasas tus notas a un archivo de Excel y se lo mandas por correo a la dueña y a los de ventas.
+
+**Reglas que conoces y no vas a decir si no te preguntan**
+* Cuando una lámina grande se corta, los pedazos que sobran (mermas) se tienen que medir y registrar como piezas nuevas, porque a veces sirven para proyectos pequeños.
+* Todas las láminas que salen de una misma piedra original tienen un "ID de bloque" que las relaciona; esto es clave porque los clientes exigen que las vetas coincidan.
+* Los vendedores a veces te piden "apartar" una lámina de palabra o por WhatsApp, pero luego la venta se cancela y a ti se te olvida regresarla a tu lista de material "disponible".
+
+**Una excepción que ocurre a veces**
+A veces, al maniobrar en el almacén con la grúa, una lámina se rompe o se despica. Tienes que darla de baja o registrarla con una medida menor. El problema es que el vendedor vio el Excel en la mañana, cree que la lámina está entera, y la vende así a un cliente.
+
+**Lo que te molesta de cómo trabajas hoy**
+Te quita muchísimo tiempo estar contestando mensajes y llamadas de los vendedores sobre si hay o no hay material. Además, te frustra cuando un instalador llega a recoger material que según él está apartado, pero tú sabes que ya se usó en otro proyecto porque el Excel que él vio no estaba actualizado.
+
+---
+
+## Guion de entrevista
+
+**Objetivo de la entrevista:**
+Entender cómo el encargado de almacén de RockStock registra las entradas y salidas hoy en día, descubrir las reglas físicas de los cortes y entender el problema que ocurre con las reservas temporales de los vendedores.
+
+**1. Contexto**
+1. Cuéntame, ¿cómo es un día normal para ti en el almacén?
+2. ¿Con qué otras personas de la empresa interactúas más durante tu día?
+
+**2. Proceso actual**
+1. Muéstrame o explícame cómo registras cuando llega un camión con láminas nuevas.
+2. ¿Cómo le avisas a los vendedores o a la dueña lo que hay disponible físicamente?
+3. ¿Qué pasa, paso a paso, cuando te piden material para una instalación?
+
+**3. Dolores o problemas**
+1. ¿Qué es lo que más tiempo te quita o más te molesta en tu semana?
+2. ¿Qué pasa cuando un vendedor necesita asegurar material para un cliente importante?
+3. ¿Alguna vez ha llegado un instalador por material y resulta que ya no está? ¿Por qué crees que pasa eso?
+
+**4. Excepciones**
+1. ¿Qué pasa si al mover una lámina en el almacén se rompe un pedazo?
+2. Cuando cortan una lámina para sacar la medida exacta de una cocina, ¿qué haces con el pedazo de piedra que sobra?
+
+**5. Verificación de supuestos**
+* *Supuesto:* El encargado de almacén es quien decide cuándo se libera una reserva temporal.
+  * *Pregunta:* Cuando un vendedor te aparta material pero la venta se cancela, ¿cómo y cuándo vuelve a estar disponible ese material para que otros lo vendan?
+* *Supuesto:* Cada lámina es independiente de las demás.
+  * *Pregunta:* Si un cliente quiere dos láminas juntas para una barra muy grande, ¿te da igual darle cualquier par de láminas del mismo color, o hay alguna regla física que sigas?
+
+---
+
+## Bitácora de la entrevista
+
+**Fecha:** 29 de septiembre de 2026
+**Entrevistador:** César Méndez
+**Persona entrevistada:** Dupla (Rol: Encargado de almacén)
+
+**Supuestos que se confirmaron:**
+* Las láminas no dan igual: existe un "ID de bloque" que amarra a las láminas que salen de la misma piedra para que coincidan las vetas.
+* Los vendedores apartan de palabra o por WhatsApp, y el Excel se desactualiza, provocando que los instaladores vayan por material que ya no existe.
+
+**Supuestos que resultaron falsos:**
+* Creíamos que el sistema debía liberar las reservas solo tras 48 horas porque era una política estricta, pero la realidad es que se quedan "apartadas a lo tonto" porque a ventas se le olvida avisar que se canceló la venta y a almacén se le olvida liberar el material manualmente.
+
+**Información que apareció y no esperábamos:**
+* Las mermas: cuando se corta una lámina grande, el pedazo que sobra no se tira ni desaparece, sino que se tiene que volver a medir y registrar como una pieza nueva disponible para proyectos chicos.
+* Los despiques en almacén: las láminas se pueden romper al maniobrar con la grúa, y si el vendedor ya vio el Excel en la mañana, la puede vender como si estuviera entera.
+
+**Cambios que haríamos después de la entrevista:**
+* Agregar un requisito funcional explícito para registrar "bajas por rotura parcial o despique".
+* Modificar el requisito de reservas para que la liberación automática a las 48 horas sea mandatoria del sistema, quitándole esa carga de memoria al encargado de almacén.
