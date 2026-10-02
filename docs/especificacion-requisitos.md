@@ -62,7 +62,6 @@
     *   **Justificación:** Proteger la integridad de los datos logísticos y evitar fraudes o manipulaciones no autorizadas del inventario físico.
 
 ## 5. Casos de Uso
-*(Detalle principal para validación)*
 
 **CU-05 · Reservar material para venta**
 *   **Actor principal:** Vendedor
