@@ -88,9 +88,14 @@
 | **RF-003** | Entrevista | CU-05 Reservar material | Detalle de lámina / Éxito | Modificado tras inspección |
 | **RF-004** | Entrevista | CU-05 Reservar material | Pantalla de Éxito | Modificado tras inspección |
 | **RF-005** | Regla de negocio | CU-05 Reservar material | Detalle de lámina | Modificado tras inspección |
-| **RF-006** | Inspección por pares | CU-04 Consultar catálogo | Catálogo | Nuevo |
-| **RF-007** | Inspección por pares | CU-02 Registrar baja por despique | N/A | Nuevo |
-| **RF-008** | Inspección por pares | CU-06 Configurar alertas | N/A | Nuevo |
+| **RF-006** | Inspección de Dupla | CU-04 Consultar catálogo | Catálogo | Nuevo |
+| **RF-007** | Inspección de Dupla | CU-02 Registrar baja por despique | N/A | Nuevo |
+| **RF-008** | Inspección de Dupla | CU-06 Configurar alertas | N/A | Nuevo |
 | **RNF-USA-001** | Derivado de Usabilidad | CU-05 Reservar material | Flujo completo (3 clics) | Modificado tras inspección |
 | **RNF-REN-001** | Derivado de Rendimiento | CU-05 Reservar material | Detalle -> Éxito | Modificado tras inspección |
 | **RNF-SEG-001** | Derivado de Seguridad | CU-05 Reservar material | Alerta de error | Vigente |
+
+### Registro de Inspección de Dupla
+*   **Revisado por: Jimena Morales**
+*   **Fecha de revisión: 01/10/2026**
+*   **Hallazgos principales integrados:** Se identificó ambigüedad en el límite de las métricas (RNF), se renombró el RF-005 para mayor claridad de la acción, y se agregaron los requisitos faltantes (RF-006, RF-007, RF-008) para respaldar los casos de uso "Consultar catálogo", "Registrar baja" y "Configurar alertas" que no tenían un requisito base documentado.
