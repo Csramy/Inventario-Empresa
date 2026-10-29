@@ -42,3 +42,7 @@ La comunicación entre estos módulos se gestionará mediante contratos limpios 
 ### Negativas
 * **Exige disciplina de desarrollo:** Como el lenguaje de programación (JavaScript/Node.js) no impide físicamente que un módulo importe código de otro de manera indebida, la separación depende enteramente de la disciplina del desarrollador y de las revisiones de código.
 * **Escalabilidad acoplada:** Si en el futuro la carga operativa creciera exponencialmente en un solo módulo, se tendría que escalar la aplicación completa (aunque esto no representa un riesgo para el volumen de operación actual).
+  
+## 5. Estado
+
+* **Aceptado**
