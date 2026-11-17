@@ -125,29 +125,39 @@ Cómo se pasan los mensajes entre objetos instanciados en orden y en el tiempo a
 sequenceDiagram
     actor Ven as Vendedor
     participant Web as :AppWeb
+    participant Com as :ControladorReserva
     participant Inv as :Inventario
     participant Lam as :Lamina
+    participant Res as :Reserva
     participant BD as :BaseDeDatos
     participant Cat as :Catalogo
 
     Ven->>Web: Solicita reservar lámina (idLamina)
-    Web->>Inv: bloquearParaReserva(idLamina, idVendedor)
-    note right of Inv: Transacción atómica revisa y bloquea al mismo tiempo (Previene carrera)
+    Web->>Com: procesarReserva(idLamina, idVendedor)
     
-    alt Lámina no disponible (DADA_DE_BAJA o RESERVADA)
-        Inv-->>Web: Error (Estado actual)
-        Web-->>Ven: Lanza Alerta de error
+    Com->>Inv: bloquearParaReserva(idLamina)
+    note right of Inv: Transacción atómica en Almacén (previene carrera)
+    
+    alt Lámina no disponible (DADA_DE_BAJA o ya RESERVADA)
+        Inv-->>Com: false (Bloqueo fallido)
+        Com-->>Web: Error de disponibilidad
+        Web-->>Ven: Lanza Alerta de error (Flujo 3a / 3b)
     else Disponible
-        Inv->>Lam: reservar()
+        Inv->>Lam: marcarReservada()
         Lam->>Lam: cambiarEstado(RESERVADA)
-        Lam-->>Inv: Reserva creada
-        Inv->>BD: guardar(Reserva)
-        BD-->>Inv: OK
+        
         Inv->>Inv: notificarCambioStock(idLamina)
-        note right of Inv: «Observer» avisa a suscriptores
+        note right of Inv: «Observer» avisa a suscriptores sin acoplarse
         Inv->>Cat: actualizar(idLamina)
         Cat->>Cat: oscurecerPiezaReservada(idLamina)
-        Inv-->>Web: Reserva confirmada
+        
+        Inv-->>Com: true (Bloqueo físico exitoso)
+        
+        Com->>Res: instanciar(idLamina, idVendedor)
+        note right of Com: Comercial retoma el control y guarda su Reserva
+        Com->>BD: guardar(Reserva)
+        BD-->>Com: OK
+        Com-->>Web: Reserva confirmada
         Web-->>Ven: Muestra pantalla de éxito
     end
 ```
@@ -168,6 +178,9 @@ classDiagram
     }
 
     namespace Comercial_y_Apartados {
+        class ControladorReserva {
+            +procesarReserva(idLamina, idVendedor) boolean
+        }
         class Catalogo {
             -tiempoMaximoRefrescoSeg: int
             +consultarDisponibilidad() List~Lamina~
@@ -206,7 +219,7 @@ classDiagram
             -idLamina: string ~readOnly~
             -superficieM2: double
             -estado: EstadoLamina
-            +reservar() Reserva
+            +marcarReservada() void
             +registrarCorte(medidas) List
             +darDeBaja(motivo) void
             +marcarDisponible() void
@@ -220,7 +233,7 @@ classDiagram
             -ultimaActualizacion: Date
             +registrarIngreso(lamina) boolean
             +procesarSalida(movimiento, lamina) boolean
-            +bloquearParaReserva(idLamina, idVendedor) boolean
+            +bloquearParaReserva(idLamina) boolean
             -notificarCambioStock(idLamina) void
         }
         class Movimiento {
@@ -266,8 +279,10 @@ classDiagram
     }
 
     Bloque "1" --> "1..*" Lamina : origina
-    Lamina "1" *-- "0..*" Reserva : bloqueada por
+    Reserva "0..*" --> "1" Lamina : aparta pieza
     note for Reserva "Máximo 1 reserva activa a la vez"
+    ControladorReserva "1" --> "1" Inventario : solicita bloqueo a
+    ControladorReserva "1" --> "0..*" Reserva : crea y guarda
     Lamina "1" --> "0..*" Merma : genera al cortarse
     Inventario "1" --> "0..*" Lamina : controla
     Inventario "1" --> "0..*" Movimiento : registra
